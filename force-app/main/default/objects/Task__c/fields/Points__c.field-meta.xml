@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Points__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( RecordType.DeveloperName, 
+&#39;TO_DO&#39;, (CASE( Difficulty__c , &#39;Trivial&#39;, 1, &#39;Easy&#39;, 2, &#39;Medium&#39;, 3, &#39;Hard&#39;, 5, 0))* IF( Overdue__c, 0.5, 1) , 
+&#39;Daily&#39;, (CASE( Difficulty__c , &#39;Trivial&#39;, 0.5, &#39;Easy&#39;, 1, &#39;Medium&#39;, 1.5, &#39;Hard&#39;, 2.5, 0))* IF( Overdue__c, 0, 1), 
+&#39;Habit&#39;, 1 - IF(  Habit_Failed__c, 2, 0), 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Points</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

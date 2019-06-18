@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Task_Completed_Cant_Edit_Difficulty</fullName>
+    <active>false</active>
+    <errorConditionFormula>TEXT(Status__c ) = &#39;Completed&#39;</errorConditionFormula>
+    <errorDisplayField>Difficulty__c</errorDisplayField>
+    <errorMessage>You can&#39;t change the difficulty because this Task is marked as Completed.</errorMessage>
+</ValidationRule>
