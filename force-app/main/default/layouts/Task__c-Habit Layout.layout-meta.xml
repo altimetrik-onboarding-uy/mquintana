@@ -78,9 +78,6 @@
             <quickActionName>Task__c.Mark_as_Failed</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>Task__c.Close_Task</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
             <quickActionName>FeedItem.TextPost</quickActionName>
         </quickActionListItems>
         <quickActionListItems>

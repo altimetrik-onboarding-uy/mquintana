@@ -1,0 +1,18 @@
+.THIS .tb-bk-grey {
+    background: #EDECEE;
+    background-clip: content-box;
+}
+
+.THIS.tb-container{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.THIS .tb-grid-container{
+    height: 100%;
+}
+
+.THIS .tb-col-headers{
+    background: #fff;
+}

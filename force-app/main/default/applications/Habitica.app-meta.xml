@@ -12,6 +12,7 @@
     <navType>Standard</navType>
     <tabs>Task__c</tabs>
     <tabs>standard-Contact</tabs>
+    <tabs>Tasks_board</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Habitica_UtilityBar</utilityBar>
 </CustomApplication>

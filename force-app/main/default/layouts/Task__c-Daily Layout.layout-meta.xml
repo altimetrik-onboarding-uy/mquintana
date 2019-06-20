@@ -75,9 +75,6 @@
     </layoutSections>
     <quickActionList>
         <quickActionListItems>
-            <quickActionName>Task__c.Close_Task</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
             <quickActionName>FeedItem.TextPost</quickActionName>
         </quickActionListItems>
         <quickActionListItems>

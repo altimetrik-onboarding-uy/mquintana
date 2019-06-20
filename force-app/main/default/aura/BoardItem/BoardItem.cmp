@@ -1,0 +1,32 @@
+<aura:component>
+    <aura:attribute name="item" type="Map" default="{'RecordType':'Habit'}"/>
+    <aura:attribute name="addHits" type="Integer" default="0"/>
+    <aura:attribute name="subtractHits" type="Integer" default="0"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <aura:registerEvent name="changeTaskStatusEvent" type="c:ChangeTaskStatusEvent"/>
+    <aura:registerEvent name="changeHabitPointsEvent" type="c:ChangeHabitPointsEvent"/>
+
+    <div class="slds-card" style="display: flex;">
+        <div class="{! v.item.RecordType.Name != 'Habit' ? '' : 'bt-order-2' }" style="flex-grow: 1">
+            <a onclick="{!c.navigateToTask}" style="{! (v.item.RecordType.Name != 'Habit' ? 'width:90%;' : 'width:80%;') + ' flex-grow: 1;'}" class="slds-p-around_medium slds-button bi-text-task">{!v.item.Name}</a>
+            <!--<div title="Streak counter" class="{! v.item.RecordType.Name == 'Habit' ? 'slds-text-body_small bi-counter' : 'slds-hide' }">
+                ►► <span class="{!v.addHits == 0 &amp;&amp; v.subtractHits == 0 ? '' : 'slds-hide'}">0</span>
+                <span class="{!v.addHits != 0 || v.subtractHits != 0 ? '' : 'slds-hide'}">+ {!v.addHits} | - {!v.subtractHits}</span>
+            </div>-->
+        </div>
+        <aura:if isTrue="{!v.item.RecordType.Name != 'Habit'}">
+            <lightning:buttonMenu iconName="utility:threedots_vertical" variant="bare" onselect="{! c.handleSelectStatus }" menuAlignment="auto">
+                <lightning:menuSubheader label="Select Status" />
+                <lightning:menuItem aura:id="menuItems" value="New" label="New" checked="{!v.item.Status__c == 'New'}" />
+                <lightning:menuItem aura:id="menuItems" value="In Progress" label="In Progress" checked="{!v.item.Status__c == 'In Progress'}" />
+                <lightning:menuItem aura:id="menuItems" value="Completed" label="Completed" checked="{!v.item.Status__c == 'Completed'}" />
+            </lightning:buttonMenu>
+            <aura:set attribute="else">
+                <lightning:buttonIcon iconName="utility:add" size="medium" variant="bare" alternativeText="Add Points" class="slds-p-left_small slds-p-right_small bt-order-1 bi-button" onclick="{! c.addPoints }" disabled="{!v.item.Task_Completed__c || v.item.Habit_Failed__c}" />
+                <lightning:buttonIcon iconName="utility:erect_window" size="medium" variant="bare" alternativeText="Subtract Points" class="slds-p-left_small slds-p-right_small slds-p-top_small bt-order-3 bi-button" onclick="{! c.subtractPoints }" disabled="{!v.item.Task_Completed__c || v.item.Habit_Failed__c}" />
+            </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>	
