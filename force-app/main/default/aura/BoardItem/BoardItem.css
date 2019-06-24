@@ -46,3 +46,7 @@
     border: 3px solid #edecee;
     color: #706e6b;
 }
+
+.THIS .slds-button:focus{
+    box-shadow: none;
+}

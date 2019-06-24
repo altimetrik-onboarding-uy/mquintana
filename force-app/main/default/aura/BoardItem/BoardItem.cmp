@@ -1,19 +1,23 @@
 <aura:component>
+    <!-- ////// ATTRIBUTES ////// -->
     <aura:attribute name="item" type="Map" default="{'RecordType':'Habit'}"/>
     <aura:attribute name="addHits" type="Integer" default="0"/>
     <aura:attribute name="subtractHits" type="Integer" default="0"/>
+    
+    <!-- ////// HANDLERS ////// -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-
+    
+    <!-- ////// EVENTS ////// -->
     <aura:registerEvent name="changeTaskStatusEvent" type="c:ChangeTaskStatusEvent"/>
     <aura:registerEvent name="changeHabitPointsEvent" type="c:ChangeHabitPointsEvent"/>
 
     <div class="slds-card" style="display: flex;">
         <div class="{! v.item.RecordType.Name != 'Habit' ? '' : 'bt-order-2' }" style="flex-grow: 1">
             <a onclick="{!c.navigateToTask}" style="{! (v.item.RecordType.Name != 'Habit' ? 'width:90%;' : 'width:80%;') + ' flex-grow: 1;'}" class="slds-p-around_medium slds-button bi-text-task">{!v.item.Name}</a>
-            <!--<div title="Streak counter" class="{! v.item.RecordType.Name == 'Habit' ? 'slds-text-body_small bi-counter' : 'slds-hide' }">
+            <div title="Streak counter" class="{! v.item.RecordType.Name == 'Habit' ? 'slds-text-body_small bi-counter' : 'slds-hide' }">
                 ►► <span class="{!v.addHits == 0 &amp;&amp; v.subtractHits == 0 ? '' : 'slds-hide'}">0</span>
                 <span class="{!v.addHits != 0 || v.subtractHits != 0 ? '' : 'slds-hide'}">+ {!v.addHits} | - {!v.subtractHits}</span>
-            </div>-->
+            </div>
         </div>
         <aura:if isTrue="{!v.item.RecordType.Name != 'Habit'}">
             <lightning:buttonMenu iconName="utility:threedots_vertical" variant="bare" onselect="{! c.handleSelectStatus }" menuAlignment="auto">
