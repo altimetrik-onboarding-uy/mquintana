@@ -1,0 +1,52 @@
+<aura:component implements="flexipage:availableForAllPageTypes, force:appHostable" access="global" controller="TaskBoardController">
+    <!-- ////// ATTRIBUTES ////// -->
+    <aura:attribute name="todoItems" type="Object[]" />
+    <aura:attribute name="dailyItems" type="Object[]" />
+    <aura:attribute name="habitItems" type="Object[]" />
+    <!-- ////// HANDLERS ////// -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="changeTaskStatusEvent" event="c:ChangeTaskStatusEvent" action="{!c.handleChangeStatusEvent}"/>
+    <aura:handler name="changeHabitPointsEvent" event="c:ChangeHabitPointsEvent" action="{!c.handleChangeHabitEvent}"/>
+    
+    <div class="tb-container">
+        <div class="slds-text-heading_large slds-p-around_medium">My Tasks</div>
+        <div class="slds-p-around_medium tb-grid-container">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 tb-bk-grey">
+                    <div class="slds-text-heading_medium tb-col-headers">Habits</div>
+                    <div class="slds-p-bottom_small">
+                        <aura:iteration items="{!v.habitItems}" var="item">
+                            <div class="slds-p-around_small slds-p-bottom_none">
+                                <c:BoardItem item="{!item}"/>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 tb-bk-grey">
+                    <div class="slds-text-heading_medium tb-col-headers">Dailies</div>
+                    <div class="slds-p-bottom_small">
+                        <aura:iteration items="{!v.dailyItems}" var="item">
+                            <div class="slds-p-around_small slds-p-bottom_none">
+                                <c:BoardItem item="{!item}"/>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-3 tb-bk-grey">
+                    <div class="slds-text-heading_medium tb-col-headers">To-Do's</div>
+                    <div class="slds-p-bottom_small">   
+                        <aura:iteration items="{!v.todoItems}" var="item">
+                            <div class="slds-p-around_small slds-p-bottom_none">
+                                <c:BoardItem item="{!item}"/>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+</aura:component>	

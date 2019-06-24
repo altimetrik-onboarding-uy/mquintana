@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="taskId" type="String"/>
+    <aura:attribute name="taskAction" type="String"/>
+</aura:event>

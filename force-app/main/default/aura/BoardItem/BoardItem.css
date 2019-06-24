@@ -1,0 +1,52 @@
+.THIS button{
+    border: none;
+    background: none;
+}
+
+.THIS button > lightning-primitive-icon:nth-child(2){
+    display: none;
+}
+
+.THIS .bt-order-1{
+    order: 1;
+    background-color: #24CC8F;
+    border-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #fff;
+    border: 3px solid #24cc8f;
+    margin: 0;
+}
+
+.THIS .bt-order-2{
+    order: 2;
+}
+
+.THIS .bt-order-3{
+    order: 3;
+    background-color: #fff2c5;
+    border-radius: 2px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: 3px solid #fff2c5;
+}
+
+.THIS .bi-text-task{
+    color:#080707;
+    text-align: left;
+}
+
+.THIS .bi-counter{
+    text-align: right;
+    color: #bdbdbd;
+}
+
+.THIS .bi-button:disabled{
+    background-color: #edecee;
+    border: 3px solid #edecee;
+    color: #706e6b;
+}
+
+.THIS .slds-button:focus{
+    box-shadow: none;
+}
