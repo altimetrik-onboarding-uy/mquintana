@@ -6,7 +6,6 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var returnValue = response.getReturnValue();
-                console.log(JSON.parse(JSON.stringify(returnValue)));
                 var todos = [];
                 var dailies = [];
                 var habits = [];

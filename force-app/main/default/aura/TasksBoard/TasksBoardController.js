@@ -4,8 +4,6 @@
     },
 
     handleChangeStatusEvent : function(cmp, event, helper){
-        console.log(event.getParam("taskId"));
-        console.log(event.getParam("taskNewStatus"));
         helper.setNewStatus(cmp, event.getParam("taskId"), event.getParam("taskNewStatus"));
     },
 

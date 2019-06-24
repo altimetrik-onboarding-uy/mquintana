@@ -17,7 +17,8 @@ global class UpdateTasksBatch implements Database.Batchable<sObject>
         }
         update scope;
         
-    }  
+    }
+      
     global void finish(Database.BatchableContext BC){
         AsyncApexJob job = [SELECT Id, Status FROM AsyncApexJob WHERE Id = :BC.getJobId()];
          //Sending mail about batch status.......

@@ -27,8 +27,10 @@ public with sharing class CloseTaskTriggerHelper {
         }
         Set<Id> idContacts = contactPointsMap.keySet();
         List<Contact> contactsToUpdate = new List<Contact>();
+        List<Contact> contacts = [SELECT Id, Total_Points__c FROM Contact WHERE Id IN :idContacts];
+        Map<String, Contact> contactsMap = new Map<String, Contact>(contacts);
         for(Id i : idContacts){
-            Contact c = [SELECT Id, Total_Points__c FROM Contact WHERE Id =: i];
+            Contact c = contactsMap.get(i);
             if(c.Total_Points__c != null ){
                 c.Total_Points__c += contactPointsMap.get(i);
             }else{
